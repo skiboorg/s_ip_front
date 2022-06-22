@@ -33,12 +33,13 @@
           <p class="no-margin">
             Р/С #{{account.account}}
           </p>
-          <div class="flex items-center justify-between ">
+
+          <div v-if="account.month_amount.filter(x=>x.month===cur_month.id).length>0" class="flex items-center justify-between ">
             <p class="q-mb-none text-positive text-bold q-mr-md text-orange">Лимит: {{account.limit}} Р</p>
 
-              <p class="q-mb-none text-positive text-bold q-mr-md">Приход: {{account.month_amount.find(x=>x.id===cur_month.id).income_amount}} Р</p>
-              <p class="q-mb-none text-negative text-bold q-mr-md">Расход: {{account.month_amount.find(x=>x.id===cur_month.id).outcome_amount}} Р</p>
-              <p class="q-mb-none text-primary text-bold">Вывод: {{account.month_amount.find(x=>x.id===cur_month.id).withdraw_amount}} Р</p>
+              <p class="q-mb-none text-positive text-bold q-mr-md">Приход: {{account.month_amount.find(x=>x.month===cur_month.id).income_amount}} Р</p>
+              <p class="q-mb-none text-negative text-bold q-mr-md">Расход: {{account.month_amount.find(x=>x.month===cur_month.id).outcome_amount}} Р</p>
+              <p class="q-mb-none text-primary text-bold">Вывод: {{account.month_amount.find(x=>x.month===cur_month.id).withdraw_amount}} Р</p>
 
 
 
